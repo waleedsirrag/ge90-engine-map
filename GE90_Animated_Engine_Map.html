@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GE90 Engine Activity Map</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map { height: 100vh; }
+
+        .blinking-icon {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map').setView([25.1288, 56.3265], 3);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        var icon_Fujairah = L.divIcon({
+            className: 'blinking-icon',
+            html: '<img src="https://i.imgur.com/OcQZz9v.png" width="32"/>',
+            iconSize: [32, 32]
+        });
+
+        L.marker([25.1288, 56.3265], {icon: icon_Fujairah})
+            .addTo(map)
+            .bindPopup("<b>Fujairah</b><br>Operator: ECT Aviation<br>Engine: GE90-90B<br>Status: <b>ACTIVE</b>");
+    
+        var icon_Sharjah = L.divIcon({
+            className: '',
+            html: '<img src="https://i.imgur.com/OcQZz9v.png" width="32"/>',
+            iconSize: [32, 32]
+        });
+
+        L.marker([25.3463, 55.4209], {icon: icon_Sharjah})
+            .addTo(map)
+            .bindPopup("<b>Sharjah</b><br>Operator: Air Arabia<br>Engine: GE90-90B<br>Status: <b>INACTIVE</b>");
+    
+        var icon_Riyadh = L.divIcon({
+            className: 'blinking-icon',
+            html: '<img src="https://i.imgur.com/OcQZz9v.png" width="32"/>',
+            iconSize: [32, 32]
+        });
+
+        L.marker([24.7136, 46.6753], {icon: icon_Riyadh})
+            .addTo(map)
+            .bindPopup("<b>Riyadh</b><br>Operator: Saudia<br>Engine: GE90-115B<br>Status: <b>ACTIVE</b>");
+    
+        var icon_Jeddah = L.divIcon({
+            className: '',
+            html: '<img src="https://i.imgur.com/OcQZz9v.png" width="32"/>',
+            iconSize: [32, 32]
+        });
+
+        L.marker([21.4858, 39.1925], {icon: icon_Jeddah})
+            .addTo(map)
+            .bindPopup("<b>Jeddah</b><br>Operator: Saudia<br>Engine: GE90-115B<br>Status: <b>INACTIVE</b>");
+    
+        var icon_Miami = L.divIcon({
+            className: 'blinking-icon',
+            html: '<img src="https://i.imgur.com/OcQZz9v.png" width="32"/>',
+            iconSize: [32, 32]
+        });
+
+        L.marker([25.7617, -80.1918], {icon: icon_Miami})
+            .addTo(map)
+            .bindPopup("<b>Miami</b><br>Operator: Amerijet<br>Engine: GE90-94B<br>Status: <b>ACTIVE</b>");
+    
+    </script>
+</body>
+</html>
